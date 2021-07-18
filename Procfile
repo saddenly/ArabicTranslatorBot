@@ -1,1 +1,1 @@
-web: sh target/bin/workerBot
+worker: sh src/main/java/Main
