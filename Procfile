@@ -1,1 +1,1 @@
-worker: sh src/main/java/Main
+worker: src/main/java/Main
