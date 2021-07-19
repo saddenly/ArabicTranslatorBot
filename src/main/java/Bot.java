@@ -311,6 +311,7 @@ public class Bot extends TelegramLongPollingBot {
         words.put("hand", "yad(يد)");
         words.put("moon", "qamar(قمر)");
         words.put("eye", "3ayn(عينٌ)");
+        words.put("woman", "imra'e(امرأة)");
         words.put("aunt", "From mother's side: khala(خالة)\n" +
                 "From father's side: 3amma(عمّة)");
         words.put("uncle", "Form mother's side: khal(خال)\n" +
@@ -333,6 +334,23 @@ public class Bot extends TelegramLongPollingBot {
         words.put("shirt", "qamees(قميص)");
         words.put("man", "rajol(رجل)");
         words.put("river", "naher(نهر)");
+        words.put("message", "resala(رسالة)");
+        words.put("report", "taqreer(تقرير)");
+        words.put("conference", "mo2tmar(مؤتمر)");
+        words.put("notes", "mola7atheat(ملاحظات)");
+        words.put("now", "al2an(الآن)");
+        words.put("at the moment", "fe hathehe alla7thea(في هذه اللحظة)");
+        words.put("anywhere", "ayyo makan(أيُّ مكان)");
+        words.put("i was born", "woledto(ولدتُ)");
+        words.put("you were born", "woledta/te/too(ولدتوا \\تَ\\تِ)");
+        words.put("he was born", "woleda(وُلِدَ)");
+        words.put("she was born", "woledat(ولدتْ)");
+        words.put("they were born", "woledoo(ولِدوا)");
+        words.put("we were born", "woledna(ولدنا)");
+        words.put("must", "yajeb 2an(أن يجب)");
+        words.put("have to", "yajeb 2an(يجبأن)");
+        words.put("should", "yajeb 2an(يجب أن)");
+        words.put("might", "yomkeno 2an(يُمْكِنُ أن)");
         words.put("topic", "mawdoo3(موضوع)");
         words.put("child", "For male: tefel(طِفِل)\n" +
                 "For female: tefla(طفلة)");
@@ -367,7 +385,23 @@ public class Bot extends TelegramLongPollingBot {
         words.put("he found", "wajada(وجدَ)");
         words.put("he finds", "yajedo(يجِدُ)");
         words.put("he was", "kana(كانَ)");
+        words.put("i am", "2akoono(أكونُ)");
+        words.put("you are", "takono/neen(تكون\\نين)\n " +
+                "plural - takonoon(تكونون)");
+        words.put("we are", "nakoono(نكونُ)");
+        words.put("they are", "yakonoon(يكونون)");
+        words.put("she is", "takoon(تكونْ)");
         words.put("he is", "yakono(يكُونُ)");
+        words.put("i was not", "lam akon(لم أكن)");
+        words.put("you were not", "lam takon/takooneen(لم تكنْ\\ تكونين)");
+        words.put("she was not", "lam takon(لم تكنْ)");
+        words.put("they were not", "lam yakoono(لم يكونوا)");
+        words.put("we were not", "lam nakon(لم نكن)");
+        words.put("i wasn't", "lam akon(لم أكن)");
+        words.put("you weren't", "lam takon/takooneen(لم تكنْ\\ تكونين)");
+        words.put("she wasn't", "lam takon(لم تكنْ)");
+        words.put("they weren't", "lam yakoono(لم يكونوا)");
+        words.put("we weren't", "lam nakon(لم نكن)");
         words.put("he invited", "da3a(دعا)");
         words.put("he invites", "yad3o(يدْعُو)");
         words.put("he walked", "masha(مشى)");
@@ -423,7 +457,8 @@ public class Bot extends TelegramLongPollingBot {
         words.put("february", "shbat(شباط)");
         words.put("march", "athear(أذار)");
         words.put("april", "nisan(نيسان)");
-        words.put("may", "ayar(أيار)");
+        words.put("may", "month - ayar(أيار)\n" +
+                "modal - robama(ربما)");
         words.put("june", "7ozayran(حزيران)");
         words.put("july", "tamooz(تموز)");
         words.put("august", "2ab(آب)");
@@ -513,9 +548,9 @@ public class Bot extends TelegramLongPollingBot {
                         1) Для перевода чисел и времени пиши цифрами.
                         Пример: 1; 15; 4:00
                         2) Для перевода глаголов пиши перед глаголами местоимение "he".
-                        Пример: he wrote; he teaches""");
+                        Пример: he wrote; he speaks""");
                 case "/command2", "/description" -> sendMsg(message, """
-                        Создатель бота, студент второго курса - Андасов Рустем. Если хочешь предложить новые идеи или нашел ошибку, можешь связаться со мной по контактам ниже:
+                        Создатель бота, студент третьего курса - Андасов Рустем. Если хочешь предложить новые идеи или нашел ошибку, можешь связаться со мной по контактам ниже:
                         \s
                         Instagram: @andasov.03
                         Email: rustemandasov6@gmail.ru""");
