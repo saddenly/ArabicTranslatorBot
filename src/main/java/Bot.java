@@ -533,6 +533,11 @@ public class Bot extends TelegramLongPollingBot {
         PreparedStatement preparedStatement;
         try {
             connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+            Statement statement = connection.createStatement();
+            statement.executeQuery("create table dictionary( id serial primary key, " +
+                            "english  varchar, transcription varchar, arabic varchar;");
+            statement.executeQuery("insert into dictionary(english, transcription, arabic) " +
+                    "values ('chair', 'korsi', '*arabic word for chair*');");
             preparedStatement = connection.prepareStatement(SQL_GET_TRANSLATION);
             preparedStatement.setString(1, message.getText().toLowerCase(Locale.ROOT));
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -556,7 +561,7 @@ public class Bot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-
+        update.getUpdateId();
         Message message = update.getMessage();
 
         if (message != null && message.hasText()) {
