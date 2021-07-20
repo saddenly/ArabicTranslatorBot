@@ -7,9 +7,13 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.sql.*;
 import java.util.*;
 
 public class Bot extends TelegramLongPollingBot {
+    public static final String DB_USERNAME = "postgres";
+    public static final String DB_PASSWORD = "rafsuher8584";
+    public static final String DB_URL = "jdbc:postgresql://localhost:2707/testDB";
     Map<String, String> words = new HashMap<>();
 
     public static void setDictionary(Map<String, String> words) {
@@ -523,9 +527,31 @@ public class Bot extends TelegramLongPollingBot {
     }
 
     public void translate(Message message) {
-        setDictionary(words);
+        String SQL_GET_TRANSLATION = "select transcription, arabic from dictionary where english = ?";
+        StringBuilder result = new StringBuilder();
+        Connection connection;
+        PreparedStatement preparedStatement;
+        try {
+            connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+            preparedStatement = connection.prepareStatement(SQL_GET_TRANSLATION);
+            preparedStatement.setString(1, message.getText().toLowerCase(Locale.ROOT));
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                result.append(resultSet.getString("transcription"))
+                        .append("(")
+                        .append(resultSet.getString("arabic"))
+                        .append(")");
+                sendMsg(message, result.toString());
+                return;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        sendMsg(message, "К сожалению, у меня нет перевода этого слова");
+
+        /*setDictionary(words);
         String engWord = message.getText();
-        sendMsg(message, words.getOrDefault(engWord.toLowerCase(Locale.ROOT), "К сожалению, у меня нет перевода этого слова"));
+        sendMsg(message, words.getOrDefault(engWord.toLowerCase(Locale.ROOT), "К сожалению, у меня нет перевода этого слова"));*/
     }
 
     @Override
