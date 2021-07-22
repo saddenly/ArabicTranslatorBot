@@ -13,7 +13,7 @@ import java.util.*;
 public class Bot extends TelegramLongPollingBot {
     public static final String DB_USERNAME = "postgres";
     public static final String DB_PASSWORD = "rafsuher8584";
-    public static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
+    public static final String DB_URL = "jdbc:postgresql://localhost:2707/testDB";
     Map<String, String> words = new HashMap<>();
 
     public static void setDictionary(Map<String, String> words) {
