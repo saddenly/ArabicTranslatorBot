@@ -532,6 +532,7 @@ public class Bot extends TelegramLongPollingBot {
         Connection connection;
         PreparedStatement preparedStatement;
         try {
+            Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
             Statement statement = connection.createStatement();
             statement.execute("insert into dictionary(english, transcription, arabic) " +
@@ -547,7 +548,7 @@ public class Bot extends TelegramLongPollingBot {
                 sendMsg(message, result.toString());
                 return;
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         sendMsg(message, "К сожалению, у меня нет перевода этого слова");
