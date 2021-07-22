@@ -13,7 +13,7 @@ import java.util.*;
 public class Bot extends TelegramLongPollingBot {
     public static final String DB_USERNAME = "postgres";
     public static final String DB_PASSWORD = "rafsuher8584";
-    public static final String DB_URL = "jdbc:postgresql://localhost:2707/testDB";
+    public static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
     Map<String, String> words = new HashMap<>();
 
     public static void setDictionary(Map<String, String> words) {
@@ -535,6 +535,7 @@ public class Bot extends TelegramLongPollingBot {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
             Statement statement = connection.createStatement();
+            statement.execute("create table dictionary ( id serial primary key, english  varchar, transcription varchar, arabic varchar);");
             statement.execute("insert into dictionary(english, transcription, arabic) " +
                     "values ('chair', 'korsi', '*arabic word for chair*');");
             preparedStatement = connection.prepareStatement(SQL_GET_TRANSLATION);
