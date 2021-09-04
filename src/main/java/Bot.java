@@ -381,6 +381,18 @@ public class Bot extends TelegramLongPollingBot {
         words.put("usually", "2adatan(*عادةً*)");
         words.put("hardly ever", "naderan ma(*نادراً ما*)");
 
+        // COMMON PHRASES AND COLLOCATIONS
+        words.put("happy birthday", "3eed milad sa3eed(*عيد ميلاد سعيد*)");
+        words.put("happy new year", "ana sa3eeda w jadeeda(*سنة سعيدة و جديدة*)");
+        words.put("hello", "marhaban(مرحبا)");
+        words.put("hi", "marhaban(مرحبا)");
+        words.put("how are you", "kayfa halooka(كيف حالك؟)");
+        words.put("how are you?", "kayfa halooka(كيف حالك؟)");
+        words.put("bye", "wada3n(وداعا)");
+        words.put("goodbye", "wada3n(وداعا)");
+        words.put("thanks", "shukran(شكرا)");
+        words.put("thank you", "shukran(شكرا)");
+
         // OTHER WORDS
         words.put("car", "Say'yara(*سيارة*)");
         words.put("bag", "7eeba(*حقيبة*)");
@@ -438,8 +450,6 @@ public class Bot extends TelegramLongPollingBot {
         words.put("children", "atfal(*أطفال*)");
         words.put("work", "3amal(*عمل*)");
         words.put("football", "qorat qadam(*كُرَة قَدَمْ*)");
-        words.put("happy birthday", "3eed milad sa3eed(*عيد ميلاد سعيد*)");
-        words.put("happy new year", "ana sa3eeda w jadeeda(*سنة سعيدة و جديدة*)");
         words.put("cheeseburger", "burger jobna(*برجر جبنة*)");
         words.put("tomatoes", "banadora(*بندورة*)");
         words.put("fish", "samak(*سمك*)");
@@ -541,9 +551,9 @@ public class Bot extends TelegramLongPollingBot {
                         """);
                 case "/command1", "/translate" -> sendMsg(message, """
                         Введи слово, которое нужно перевести.\s
-                        1) Для перевода чисел и времени пиши цифрами.
+                        *1)* Для перевода чисел и времени пиши цифрами.
                         Пример: _1_; _15_; _4:00_
-                        2) Для перевода глаголов пиши перед глаголами местоимение "he".
+                        *2)* Для перевода глаголов пиши перед глаголами местоимение "he".
                         Пример: _he wrote_; _he teaches_""");
                 case "/command2", "/description" -> sendMsg(message, """
                         Создатель бота, студент третьего курса - Андасов Рустем. Если хочешь предложить новые идеи или нашел ошибку, можешь связаться со мной по контактам ниже:
